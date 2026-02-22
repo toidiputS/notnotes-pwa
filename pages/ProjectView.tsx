@@ -75,7 +75,7 @@ const ProjectView = () => {
   };
 
   return (
-    <div className="h-full flex flex-col md:flex-row animate-in fade-in duration-500 relative bg-slate-950">
+    <div className="h-full print:h-auto print:block flex flex-col md:flex-row animate-in fade-in duration-500 relative bg-slate-950">
       {/* Local Sidebar Open Trigger */}
       {!isSidebarOpen && (
         <div className="absolute top-6 left-6 z-30 hidden md:block">
@@ -162,10 +162,10 @@ const ProjectView = () => {
       </div>
 
       {/* Main Project Content Area */}
-      <div className="flex-1 min-w-0 p-4 md:p-12 h-full overflow-hidden bg-slate-950 print:p-0 print:h-auto print:overflow-visible">
+      <div className="flex-1 min-w-0 p-4 md:p-12 h-full print:h-auto print:block overflow-hidden bg-slate-950 print:p-0 print:overflow-visible">
         <div
           key={project.id}
-          className="bg-[#0B0E14] rounded-[3.5rem] border border-white/5 shadow-[0_64px_128px_-32px_rgba(0,0,0,0.9)] p-8 md:p-20 overflow-y-auto h-full relative scrollbar-thin scrollbar-thumb-white/5 scrollbar-track-transparent text-slate-200 print:overflow-visible print:h-auto print:shadow-none print:border-none print:rounded-none print:p-0 print:bg-transparent"
+          className="bg-[#0B0E14] print:bg-transparent print:block print:p-0 rounded-[3.5rem] border border-white/5 print:border-none print:shadow-none shadow-[0_64px_128px_-32px_rgba(0,0,0,0.9)] p-8 md:p-20 overflow-y-auto h-full print:h-auto relative scrollbar-thin scrollbar-thumb-white/5 scrollbar-track-transparent text-slate-200 print:overflow-visible print:rounded-none"
         >
           <Routes>
             <Route index element={<Navigate to="overview" replace />} />

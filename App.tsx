@@ -71,7 +71,7 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
   return (
     <LayoutContext.Provider value={{ isSidebarCollapsed, setSidebarCollapsed, showGlobalTrigger, setShowGlobalTrigger }}>
       <OracleListener />
-      <div className="flex h-screen print:h-auto bg-slate-950 overflow-hidden print:overflow-visible text-slate-50 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+      <div className="flex h-screen print:h-auto print:block bg-slate-950 overflow-hidden print:overflow-visible text-slate-50 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
         {/* Mobile Sidebar Overlay */}
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 md:hidden" onClick={() => setMobileMenuOpen(false)} />
@@ -178,7 +178,7 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 flex flex-col h-full print:h-auto overflow-hidden print:overflow-visible relative bg-slate-950">
+        <main className="flex-1 flex flex-col h-full print:h-auto print:block overflow-hidden print:overflow-visible relative bg-slate-950">
           <header className="flex items-center justify-between p-4 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 md:hidden z-10 sticky top-0">
             <div className="flex items-center space-x-2 font-bold text-slate-100">
               <div className="w-6 h-6 bg-slate-800 rounded flex items-center justify-center text-indigo-400 text-xs font-serif italic border border-slate-700">N</div>
@@ -202,7 +202,7 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
             </div>
           )}
 
-          <div className="flex-1 overflow-hidden print:overflow-visible print:h-auto relative">
+          <div className="flex-1 overflow-hidden print:overflow-visible print:h-auto print:block relative">
             {children}
           </div>
         </main>

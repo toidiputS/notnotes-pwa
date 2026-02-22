@@ -91,7 +91,7 @@ const ProjectView = () => {
 
       {/* Project Sidebar */}
       <div className={`
-          flex-shrink-0 flex flex-col transition-all duration-700 overflow-hidden border-r border-white/5 bg-[#020617]
+          print:hidden flex-shrink-0 flex flex-col transition-all duration-700 overflow-hidden border-r border-white/5 bg-[#020617]
           ${isSidebarOpen ? 'w-full md:w-80 opacity-100' : 'md:w-0 md:opacity-0 md:h-0 md:border-r-0'}
       `}>
         <div className="p-10 space-y-12 h-full flex flex-col">
@@ -162,10 +162,10 @@ const ProjectView = () => {
       </div>
 
       {/* Main Project Content Area */}
-      <div className="flex-1 min-w-0 p-4 md:p-12 h-full overflow-hidden bg-slate-950">
+      <div className="flex-1 min-w-0 p-4 md:p-12 h-full overflow-hidden bg-slate-950 print:p-0 print:h-auto print:overflow-visible">
         <div
           key={project.id}
-          className="bg-[#0B0E14] rounded-[3.5rem] border border-white/5 shadow-[0_64px_128px_-32px_rgba(0,0,0,0.9)] p-8 md:p-20 overflow-y-auto h-full relative scrollbar-thin scrollbar-thumb-white/5 scrollbar-track-transparent text-slate-200"
+          className="bg-[#0B0E14] rounded-[3.5rem] border border-white/5 shadow-[0_64px_128px_-32px_rgba(0,0,0,0.9)] p-8 md:p-20 overflow-y-auto h-full relative scrollbar-thin scrollbar-thumb-white/5 scrollbar-track-transparent text-slate-200 print:overflow-visible print:h-auto print:shadow-none print:border-none print:rounded-none print:p-0 print:bg-transparent"
         >
           <Routes>
             <Route index element={<Navigate to="overview" replace />} />

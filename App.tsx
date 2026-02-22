@@ -71,7 +71,7 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
   return (
     <LayoutContext.Provider value={{ isSidebarCollapsed, setSidebarCollapsed, showGlobalTrigger, setShowGlobalTrigger }}>
       <OracleListener />
-      <div className="flex h-screen bg-slate-950 overflow-hidden text-slate-50 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+      <div className="flex h-screen print:h-auto bg-slate-950 overflow-hidden print:overflow-visible text-slate-50 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
         {/* Mobile Sidebar Overlay */}
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 md:hidden" onClick={() => setMobileMenuOpen(false)} />
@@ -79,7 +79,7 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
 
         {/* Sidebar */}
         <aside className={`
-          fixed md:relative z-50 bg-[#020617] border-r border-white/5 h-full flex flex-col shadow-2xl md:shadow-none
+          print:hidden fixed md:relative z-50 bg-[#020617] border-r border-white/5 h-full flex flex-col shadow-2xl md:shadow-none
           transition-all duration-700 ease-[cubic-bezier(0.2,0,0,1)]
           ${isMobileMenuOpen ? 'translate-x-0 w-80' : '-translate-x-full md:translate-x-0'}
           ${isSidebarCollapsed ? 'md:w-0 md:opacity-0 md:overflow-hidden md:border-r-0' : 'md:w-80 md:opacity-100'}
@@ -114,8 +114,8 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
                     key={p.id}
                     to={`/project/${p.id}`}
                     className={({ isActive }) => `block px-4 py-3 text-sm rounded-2xl truncate transition-all duration-500 group ${isActive
-                        ? 'bg-white/5 text-white shadow-2xl ring-1 ring-white/10 font-semibold'
-                        : 'text-slate-500 hover:text-slate-200 hover:bg-white/5'
+                      ? 'bg-white/5 text-white shadow-2xl ring-1 ring-white/10 font-semibold'
+                      : 'text-slate-500 hover:text-slate-200 hover:bg-white/5'
                       }`}
                   >
                     <div className="flex items-center">
@@ -178,7 +178,7 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 flex flex-col h-full overflow-hidden relative bg-slate-950">
+        <main className="flex-1 flex flex-col h-full print:h-auto overflow-hidden print:overflow-visible relative bg-slate-950">
           <header className="flex items-center justify-between p-4 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 md:hidden z-10 sticky top-0">
             <div className="flex items-center space-x-2 font-bold text-slate-100">
               <div className="w-6 h-6 bg-slate-800 rounded flex items-center justify-center text-indigo-400 text-xs font-serif italic border border-slate-700">N</div>
@@ -202,7 +202,7 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
             </div>
           )}
 
-          <div className="flex-1 overflow-hidden relative">
+          <div className="flex-1 overflow-hidden print:overflow-visible print:h-auto relative">
             {children}
           </div>
         </main>

@@ -48,8 +48,12 @@ export const exportHelpers = {
                 if (index < notes.length - 1) md += `**_**\n\n`;
             });
         } else {
-            md += `*No artifacts successfully gathered for this session.*\n`;
+            md += `*No artifacts successfully gathered for this session.*\n\n`;
         }
+
+        md += `---\n\n`;
+        md += `**[ END OF RECORD ]**\n`;
+        md += `*Session Terminated. All Humanot node memory has been securely wiped. No persistent context retained (No dreaming).*`;
 
         return md;
     },

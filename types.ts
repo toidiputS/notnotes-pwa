@@ -112,3 +112,41 @@ export interface ActivityLog {
   action: string;
   timestamp: number;
 }
+
+// ─── Deck Protocol ──────────────────────────────────────────────
+
+export interface DeckSlide {
+  type: 'cover' | 'statement' | 'bullets' | 'warning' | 'roadmap' | 'chart' | 'comparison' | 'quote';
+  // Cover
+  title?: string;
+  subtitle?: string;
+  meta?: string;
+  // Statement / Warning / Quote
+  heading?: string;
+  body?: string;
+  // Bullets
+  items?: string[];
+  // Roadmap
+  phases?: { name: string; description?: string; status?: string }[];
+  // Chart
+  chartType?: string;
+  data?: any;
+  // Comparison
+  columns?: { label: string; items: string[] }[];
+  // Quote
+  attribution?: string;
+}
+
+export interface Deck {
+  id: string;
+  deckId: string;
+  projectId: string;
+  who: {
+    tool: string;
+    id: string;
+    color: string;
+  };
+  slides: DeckSlide[];
+  timestamp: string;
+  createdAt: number;
+}

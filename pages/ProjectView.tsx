@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Routes, Route, NavLink, useNavigate, Navigate } from 'react-router-dom';
 import {
   FileText, CheckSquare, Paperclip, BrainCircuit, Calendar,
-  Archive, AlignLeft, PanelLeftClose, PanelLeftOpen, Package
+  Archive, AlignLeft, PanelLeftClose, PanelLeftOpen, Layers
 } from '../components/ui/Icons';
 import { api } from '../services/db';
 import { Project, ProjectStatus } from '../types';
@@ -17,7 +17,7 @@ import ProjectFiles from './project/ProjectFiles';
 import ProjectTimeline from './project/ProjectTimeline';
 import ProjectMindmaps from './project/ProjectMindmaps';
 import ProjectArchive from './project/ProjectArchive';
-import ProjectPacket from './project/ProjectPacket';
+import ProjectDossier from './project/ProjectDossier';
 
 const TabLink = ({ to, icon: Icon, label }: { to: string, icon: any, label: string }) => (
   <NavLink
@@ -140,12 +140,12 @@ const ProjectView = () => {
               <TabLink to={`/project/${project.id}/docs`} icon={FileText} label="Docs" />
               <TabLink to={`/project/${project.id}/files`} icon={Paperclip} label="Files" />
               <TabLink to={`/project/${project.id}/timeline`} icon={Calendar} label="Timeline" />
-              <TabLink to={`/project/${project.id}/packet`} icon={Package} label="Final Packet" />
             </div>
 
             <div className="pt-12">
-              <div className="text-[9px] font-bold text-slate-800 uppercase tracking-[0.4em] mb-6 px-4">Extensions</div>
+              <div className="text-[9px] font-bold text-slate-800 uppercase tracking-[0.4em] mb-6 px-4">Intelligence</div>
               <div className="space-y-2">
+                <TabLink to={`/project/${project.id}/dossier`} icon={Layers} label="Dossier" />
                 <TabLink to={`/project/${project.id}/mindmaps`} icon={BrainCircuit} label="Mindmaps" />
                 <TabLink to={`/project/${project.id}/archive`} icon={Archive} label="Archive" />
               </div>
@@ -174,7 +174,7 @@ const ProjectView = () => {
             <Route path="docs" element={<ProjectDocs projectId={project.id} />} />
             <Route path="files" element={<ProjectFiles projectId={project.id} />} />
             <Route path="timeline" element={<ProjectTimeline projectId={project.id} />} />
-            <Route path="packet" element={<ProjectPacket project={project} />} />
+            <Route path="dossier" element={<ProjectDossier project={project} />} />
             <Route path="mindmaps" element={<ProjectMindmaps />} />
             <Route path="archive" element={<ProjectArchive />} />
           </Routes>

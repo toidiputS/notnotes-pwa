@@ -53,7 +53,7 @@ export const exportHelpers = {
 
         md += `---\n\n`;
         md += `**[ END OF RECORD ]**\n`;
-        md += `*Session Terminated. All Humanot node memory has been securely wiped. No persistent context retained (No dreaming).*`;
+        md += `*Session Terminated. All Youniverse node memory has been securely wiped. No persistent context retained (No dreaming).*`;
 
         return md;
     },

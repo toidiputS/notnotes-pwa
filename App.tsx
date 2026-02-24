@@ -15,6 +15,8 @@ import CalendarPage from './pages/CalendarPage';
 import { QuickCapture } from './components/QuickCapture';
 import { api } from './services/db';
 import { OracleListener } from './components/OracleListener';
+import { IncomingCommitListener } from './components/IncomingCommitListener';
+import { DeckQueueListener } from './components/DeckQueueListener';
 import { tierService } from './services/tierService';
 import { TierOverlay } from './components/TierOverlay';
 
@@ -71,6 +73,8 @@ const Layout: React.FC<{ children: React.ReactNode, onGlobalRefresh: () => void 
   return (
     <LayoutContext.Provider value={{ isSidebarCollapsed, setSidebarCollapsed, showGlobalTrigger, setShowGlobalTrigger }}>
       <OracleListener />
+      <IncomingCommitListener />
+      <DeckQueueListener />
       <div className="flex h-screen print:h-auto print:block bg-slate-950 overflow-hidden print:overflow-visible text-slate-50 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
         {/* Mobile Sidebar Overlay */}
         {isMobileMenuOpen && (
